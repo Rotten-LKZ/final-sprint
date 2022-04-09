@@ -3,8 +3,8 @@ body {
   background-image: url(https://kumakumakumabear.com/core_sys/images/contents/00000034/block/00000128/00000204.jpg?1640243773);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {

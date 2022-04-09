@@ -1,23 +1,4 @@
 
-const defaultConfig = {
-  target: '高考目标',
-  bgImageUrl: 'https://kumakumakumabear.com/core_sys/images/contents/00000034/block/00000128/00000204.jpg?1640243773',
-  school: {
-    logo: 'https://www.tsinghua.edu.cn/image/logo.png',
-    // It supports HTML tags.
-    name: '清华大学',
-    website: {
-      // It supports HTML tags.
-      name: '清华大学官方网站',
-      url: 'http://www.tsinghua.edu.cn/'
-    }
-  },
-  // 13 位时间戳
-  time: 1654560000000,
-  // Chuuni means 中二, it supports HTML tags
-  chuuni: 'A wider world is waiting for you to explore.\nNever give up or give in.'
-}
-
 const config = getConfig()
 const days = document.getElementById('days')
 const hours = document.getElementById('hours')
@@ -31,6 +12,13 @@ document.getElementById('schoolName').innerHTML = config.school.name.replace(/\n
 document.getElementById('schoolWebsite').parentElement.href = config.school.website.url
 document.getElementById('schoolWebsite').innerHTML = config.school.website.name.replace(/\n/g, '<br>')
 updateTime()
+
+document.getElementById('clear').onclick = function(e) {
+  e.preventDefault()
+  if (window.localStorage)
+    window.localStorage.removeItem('config')
+  window.location.reload()
+}
 
 function getConfig() {
   if (window.localStorage)

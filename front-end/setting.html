@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>提交目标</title>
+  <style>
+    textarea {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+    }
+  </style>
+</head>
+<body>
+  Because the author is lazy, please fill in the form by yourself: <br>
+  Tip: chuuni, target, school.name, school.website.name all support HTML tags and \n to make a new line. <br>
+  <textarea id="config">{
+  "target":"高考目标",
+  "bgImageUrl":"https://kumakumakumabear.com/core_sys/images/contents/00000034/block/00000128/00000204.jpg?1640243773",
+  "school":{
+    "logo":"https://www.tsinghua.edu.cn/image/logo.png",
+    "name":"清华大学",
+    "website":{
+      "name":"清华大学官方网站",
+      "url":"http://www.tsinghua.edu.cn/"
+    }
+  },
+  "time":1654560000000,
+  "chuuni":"A wider world is waiting for you to explore.\nNever give up or give in."
+}</textarea><br>
+  <a href="./index.html">效果预览</a><br>
+  <button id="submit">提交</button>
+  <script src="./defaultConfig.js"></script>
+  <script>
+    if (window.localStorage) {
+      document.getElementById('config').value = localStorage.getItem('config') || defaultConfigStr
+    } else {
+      alert("Your browser does not support local storage. Please upgrade your browser.")
+    }
+    document.getElementById('submit').onclick = function() {
+      if (window.localStorage) {
+        localStorage.setItem('config', document.getElementById('config').value);
+      } else {
+        alert("Your browser does not support local storage. Please upgrade your browser.")
+      }
+    }
+  </script>
+</body>
+</html>
