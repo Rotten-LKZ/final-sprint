@@ -44,8 +44,11 @@ function calcDiffBetweenTwoTime(now, target) {
 function updateTime() {
   const diff = calcDiffBetweenTwoTime(Date.now(), config.time)
   days.innerText = addZero(diff.days)
-  // days.setAttribute('color', calcRed(diff.days))
-  days.setAttribute('style', `color: rgb(${calcRed(diff.days)}, 0, 0);`)
+  // days.setAttribute('style', `color: rgb(${calcRed(diff.days)}, 0, 0);`)
+  if (diff.days <= 100) 
+    days.setAttribute('style', `color: yellow;`)
+  else if (diff.days <= 20) 
+    days.setAttribute('style', `color: red;`)
   hours.innerText = addZero(diff.hours)
   minutes.innerText = addZero(diff.minutes)
   seconds.innerText = addZero(diff.seconds)
