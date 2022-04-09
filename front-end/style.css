@@ -1,0 +1,53 @@
+
+body {
+  background-image: url(https://kumakumakumabear.com/core_sys/images/contents/00000034/block/00000128/00000204.jpg?1640243773);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  margin: auto;
+  border: 1px solid #000;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+hr {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+h1, h2, h3 {
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.days {
+  /* --red: 3; */
+  font-size: 1.8rem;
+  font-weight: bold;
+  /* color: rgb(--red, 0, 0); */
+}
+
+.detail-time {
+  font-size: 1.3rem;
+}
+
+.unit {
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.chuuni {
+  font-style: italic;
+}
