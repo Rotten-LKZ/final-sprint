@@ -1,0 +1,38 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: 🍳 Build on ${{ matrix.os }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: 🤔 Checkout
+        uses: actions/checkout@v2
+      
+      - name: ✨ Create SSH
+        env:
+          ID_RSA: ${{ secrets.ID_RSA }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$ID_RSA" >> ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: 📂 Commit & Push
+        run: |
+          git config --global user.name "Rotten-LKZ"
+          git config --global user.email "Rotten_LKZ@163.com"
+          git clone git@github.com:Rotten-LKZ/open.lkzstudio.com.git
+          cp -r ./front-end/* ./open.lkzstudio.com/goal
+          cd ./open.lkzstudio.com
+          git add .
+          git commit -m "project final-sprint update[bot]" -a
+          git push
